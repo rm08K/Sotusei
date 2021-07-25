@@ -44,4 +44,13 @@ jobs:
 
       - name: Install dependencies 👨🏻‍💻
         run: yarn
+      
+      - name: Nuxt Generate
+        run: yarn run generate
 
+      - name: Github Pages Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+              FOLDER: dist 
