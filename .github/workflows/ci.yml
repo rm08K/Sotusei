@@ -49,8 +49,8 @@ jobs:
         run: yarn run generate
 
       - name: Github Pages Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-              FOLDER: dist 
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+                FOLDER: dist 
