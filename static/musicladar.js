@@ -1,60 +1,64 @@
 window.onload = function () {
-  console.log('s')
-  // AudioContext
+  console.log('js file pass')
   var audioCtx
-  // オシレータ
   var oscillator
-  // ゲイン
   var gain
-
   var firstflg = true
-  // this.document.getElementById('touchPannel').onmousedown = function(){
-  //   console.log("g")
-  // }
-
-  this.document.getElementById('touchPannel').onmousedown = function() {
-    console.log("d")
+  let lfo
+  let depth
+  let touchPannel = document.getElementById('touchPannel')
+  let range_Hz = 0
+  let range_Lfo = 0
+  touchPannel.onmousedown = function() {
+    console.log("start")
     stop()
-
-    var range_vol = document.getElementById('slider').value
-    // document.getElementById('msg_vol').innerHTML = parseInt(range_vol, 10) + '%'
-
-    // var range_Hz = document.getElementById('range_Hz').value
-    // document.getElementById('msg_Hz').innerHTML = parseInt(range_Hz, 10) + 'Hz'
-
+    let range_vol = document.getElementById('slider').value
     try {
       if (firstflg) {
-        // AudioContextの生成
         audioCtx = new AudioContext()
         firstflg = false
       }
-      // 波形
       oscillator = audioCtx.createOscillator()
       if (document.getElementById('b1').checked) oscillator.type = 'sine'
       if (document.getElementById('b2').checked) oscillator.type = 'square'
       if (document.getElementById('b3').checked) oscillator.type = 'sawtooth'
-
-      // 周波数
-      // oscillator.frequency.value = range_Hz
-
-      // ゲイン(音量)
       gain = audioCtx.createGain()
       gain.gain.value = range_vol / 100
 
+      lfo = audioCtx.createOscillator();
+      depth = audioCtx.createGain();
+      depth.gain.value = 50;
+      lfo.type = "sine";
+      lfo.frequency.value = 10
+
+      hzchange()
+      lfochange()
       oscillator.connect(gain)
       gain.connect(audioCtx.destination)
+      lfo.connect(depth).connect(oscillator.frequency);
       oscillator.start()
+      lfo.start();
     } catch (e) {
       console.log(e)
     }
   }
-
-  function stop() {
+  let hzchange =　function() {
+    oscillator.frequency.value = 100 + 2 * parseInt(document.getElementById('x').innerHTML)
+  }
+  touchPannel.addEventListener('mousemove', hzchange, false)
+  let lfochange = function(){
+    lfo.frequency.value = parseInt(document.getElementById('y').innerHTML) / 20
+    depth.gain.value = parseInt(document.getElementById('y').innerHTML) / 20
+  }
+  touchPannel.addEventListener('mousemove', lfochange, false)
+  let stop = function()  {
     if (oscillator) {
       oscillator.stop()
-
       gain.disconnect()
       oscillator.disconnect()
+      console.log('stopped')
     }
   }
+  touchPannel.addEventListener('mouseup', stop, false)
+  touchPannel.addEventListener('mouseleave', stop, false)
 }

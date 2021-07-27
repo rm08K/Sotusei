@@ -6,7 +6,8 @@
     <input type="checkbox" name="b3" id="b3" ref="b3">
   </div>
   <div class="touchPannel" id="touchPannel" ref="touchPannel" @mousemove="slide" @mousedown="sound" @mouseup="stop" @mouseleave="stop">
-    {{ x }},{{ y }}
+    <div id="x">{{ x }}</div>,
+    <div id="y">{{ y }}</div>
   </div>
   <div class="slider">
     <input type="range" min="0" max="100" value="25" ref="slider" id="slider">
@@ -57,9 +58,10 @@ export default {
 <style lang="css">
 
 .touchPannel {
-  display: block;
+  display: flex;
   width: 500px;
   height: 500px;
   border: solid 1px black;
+  user-select: none;
 }
 </style>
