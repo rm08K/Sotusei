@@ -203,9 +203,4 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: $mainColor;
 }
-
-body {
-  padding: 30px;
-}
-
 </style>
