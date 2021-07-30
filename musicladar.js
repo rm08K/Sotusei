@@ -22,6 +22,7 @@ window.onload = function () {
       if (document.getElementById('b1').checked) oscillator.type = 'sine'
       if (document.getElementById('b2').checked) oscillator.type = 'square'
       if (document.getElementById('b3').checked) oscillator.type = 'sawtooth'
+      if (document.getElementById('b4').checked) oscillator.type = 'triangle'
       gain = audioCtx.createGain()
       gain.gain.value = range_vol / 100
 
