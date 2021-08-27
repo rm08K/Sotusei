@@ -36,10 +36,11 @@ export default {
             DeviceMotionEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
+                  target.innerHTML = "done"
                   // 許可を得られた場合、devicemotionをイベントリスナーに追加
                   window.addEventListener('devicemotion', (e) => {
                     // devicemotionのイベント処理
-                    target.innerHTML = "done"
+                    target.innerHTML = e.acceleration.x
                   })
                 } else {
                   // 許可を得られなかった場合の処理
