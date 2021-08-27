@@ -1,6 +1,7 @@
 <template>
   <div>
     <button id="switch">Start</button>
+    <div id="x"></div>
     <div id="target"></div>
   </div>
 </template>
@@ -21,7 +22,7 @@ export default {
   methods: {
     maracas() {
       if (process.client) {
-        let x
+        let x = document.getElementById("x")
         let size = 20
         let flg = true
         let count = 0
@@ -44,6 +45,7 @@ export default {
                     // devicemotionのイベント処理
                     target.innerHTML = e.acceleration.x
                     if(e.acceleration.x < -20 || e.acceleration.x > 20){
+                      x.innerHTML += 1
                       sound.play()
                     }
                   })
