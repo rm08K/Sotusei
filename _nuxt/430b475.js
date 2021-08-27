@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{232:function(n,t,e){"use strict";e.r(t);var c=e(37),component=Object(c.a)({},(function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",[e("div",[n._v("welcome!")]),n._v(" "),e("nuxt-link",{attrs:{to:"/MusicLadar"}},[n._v("MusicLadar")])],1)}),[],!1,null,null,null);t.default=component.exports}}]);
