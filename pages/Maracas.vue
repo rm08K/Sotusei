@@ -29,6 +29,7 @@ export default {
         let target = document.getElementById('target')
         const sound = new Audio('maracas/maracas.mp3')
         const requestDeviceMotionPermission = () => {
+          sound.load()
           if (
             DeviceMotionEvent &&
             typeof DeviceMotionEvent.requestPermission === 'function'
