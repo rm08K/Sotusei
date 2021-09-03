@@ -41,16 +41,20 @@ export default {
                 if (permissionState === 'granted') {
                   target.innerHTML = "done"
                   // 許可を得られた場合、devicemotionをイベントリスナーに追加
-                  setInterval(() => {
-                    window.addEventListener('devicemotion', (e) => {
+                  window.addEventListener('devicemotion', (e) => {
                     // devicemotionのイベント処理
                     target.innerHTML = e.acceleration.x
                     if(e.acceleration.x < -30 || e.acceleration.x > 30){
-                      x.innerHTML += 1
-                      sound.play()
+                      if(flg == true){
+                        x.innerHTML += 1
+                        sound.play()
+                        flg = false
+                        sound.onended = ()=>{
+                          flg = true
+                        }
+                      }
                     }
                   })
-                  }, 10);
                 } else {
                   // 許可を得られなかった場合の処理
                 }
