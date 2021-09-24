@@ -60,7 +60,7 @@ export default {
                   window.addEventListener('devicemotion', (e) => {
                     // devicemotionのイベント処理
                     target.innerHTML = e.acceleration.x
-                    if(e.acceleration.x < -30 || e.acceleration.x > 30){
+                    if(e.acceleration.x < -10 || e.acceleration.x > 10){
                       if(flg == true){
                         x.innerHTML += 1
                         sound.play()
