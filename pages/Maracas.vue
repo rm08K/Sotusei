@@ -62,7 +62,8 @@ export default {
                     target.innerHTML = e.acceleration.x
                     if(e.acceleration.x < -10 || e.acceleration.x > 10){
                       if(flg == true){
-                        x.innerHTML += 1
+                        count += 1
+                        x.innerHTML = count
                         sound.play()
                         flg = false
                         sound.onended = ()=>{
