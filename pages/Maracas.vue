@@ -59,7 +59,7 @@ export default {
                   // 許可を得られた場合、devicemotionをイベントリスナーに追加
                   window.addEventListener('devicemotion', (e) => {
                     // devicemotionのイベント処理
-                    target.innerHTML = Math.floor(e.acceleration.x　* 10) 
+                    target.innerHTML = Math.floor(e.acceleration.x　* 10)　/ 10 
                     if(e.acceleration.x < -5 || e.acceleration.x > 5){
                       if(flg == true){
                         count += 1
