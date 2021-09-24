@@ -63,6 +63,7 @@ export default {
                       if(flg == true){
                         count += 1
                         x.innerHTML = count
+                        sound.currentTime = 0
                         sound.play()
                         flg = false
                         sound.onended = ()=>{
