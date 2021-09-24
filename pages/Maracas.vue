@@ -54,12 +54,13 @@ export default {
             DeviceMotionEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
+                  button.innerHTML = "Shake!"
                   sound.load()
                   // 許可を得られた場合、devicemotionをイベントリスナーに追加
                   window.addEventListener('devicemotion', (e) => {
                     // devicemotionのイベント処理
                     target.innerHTML = e.acceleration.x
-                    if(e.acceleration.x < -10 || e.acceleration.x > 10){
+                    if(e.acceleration.x < -5 || e.acceleration.x > 5){
                       if(flg == true){
                         count += 1
                         x.innerHTML = count
