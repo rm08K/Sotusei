@@ -1,16 +1,31 @@
 <template>
-  <div>
-    <button id="switch">Start</button>
+  <div class="container">
+    <button id="switch">Tap!</button>
     <div id="x"></div>
     <div id="target"></div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
 #switch {
-  font-size: 20px;
+  position: absolute;
+  display: block;
+  font-size: 40px;
   background-color: #ccc;
-  height: 50px;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  border-radius: 50%;
+  color: black;
+  border: 5px solid black;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
 }
 </style>
 
@@ -23,6 +38,7 @@ export default {
     maracas() {
       if (process.client) {
         let x = document.getElementById("x")
+        let button = document.getElementById("switch")
         let size = 20
         let flg = true
         let count = 0
@@ -57,12 +73,13 @@ export default {
                   })
                 } else {
                   // 許可を得られなかった場合の処理
+                  button.innerHTML = "error"
                 }
               })
               .catch(console.error) // https通信でない場合などで許可を取得できなかった場合
           } else {
             // 上記以外のブラウザ
-            target.innerHTML = "error"
+            button.innerHTML = "error"
           }
         }
 
