@@ -45,7 +45,6 @@ export default {
         let target = document.getElementById('target')
         const sound = new Audio('maracas/maracas.wav')
         const requestDeviceMotionPermission = () => {
-          sound.load()
           if (
             DeviceMotionEvent &&
             typeof DeviceMotionEvent.requestPermission === 'function'
@@ -55,7 +54,7 @@ export default {
             DeviceMotionEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
-                  target.innerHTML = "done"
+                  sound.load()
                   // 許可を得られた場合、devicemotionをイベントリスナーに追加
                   window.addEventListener('devicemotion', (e) => {
                     // devicemotionのイベント処理
