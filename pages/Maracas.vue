@@ -67,9 +67,6 @@ export default {
                         sound.currentTime = 0
                         sound.play()
                         flg = false
-                        sound.onended = ()=>{
-                          flg = true
-                        }
                       }
                     }
                   })
@@ -88,6 +85,10 @@ export default {
         // ボタンクリックでrequestDeviceMotionPermission実行
         const startButton = document.getElementById('switch')
         startButton.addEventListener('click',requestDeviceMotionPermission,false)
+
+        sound.onended = ()=>{
+          flg = true
+        }
       }
     },
   },
