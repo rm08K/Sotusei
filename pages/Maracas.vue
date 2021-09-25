@@ -43,7 +43,7 @@ export default {
         let flg = true
         let count = 0
         let target = document.getElementById('target')
-        const sound = new Audio('maracas/maracas.wav')
+        const sound = new Audio('maracas/maracas.mp3')
         const requestDeviceMotionPermission = () => {
           if (
             DeviceMotionEvent &&
