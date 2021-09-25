@@ -37,6 +37,7 @@ export default {
   methods: {
     maracas() {
       if (process.client) {
+        console.log("version1.0")
         let x = document.getElementById("x")
         let button = document.getElementById("switch")
         let size = 20
@@ -67,6 +68,7 @@ export default {
                         sound.currentTime = 0
                         sound.play()
                         flg = false
+                        console.log(flg)
                       }
                     }
                   })
@@ -88,6 +90,7 @@ export default {
 
         sound.onended = ()=>{
           flg = true
+          console.log(flg)
         }
       }
     },
