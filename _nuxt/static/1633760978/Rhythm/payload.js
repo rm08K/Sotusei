@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/Rhythm", {data:[{}],fetch:{},mutations:void 0});
