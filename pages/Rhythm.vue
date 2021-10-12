@@ -38,9 +38,22 @@ export default {
       if (process.client) {
         console.log("ver1.0")
         const snd1 = new Audio("rhythm/魔王魂  ドラム2-タム2.mp3")
+        const snd2 = new Audio("rhythm/魔王魂  ピアノ1-Fコード.mp3")
+        const snd5 = new Audio("rhythm/059_dr_bpm140_4-4_rock.mp3")
         document.getElementById("btn1").addEventListener("click",() => {
           snd1.currentTime = 0
           snd1.play()
+          console.log("pushed")
+        })
+        document.getElementById("btn2").addEventListener("click",() => {
+          snd2.currentTime = 0
+          snd2.play()
+          console.log("pushed")
+        })
+        document.getElementById("btn5").addEventListener("click",() => {
+          snd5.currentTime = 0
+          snd5.play()
+          snd5.loop = true
           console.log("pushed")
         })
       }
