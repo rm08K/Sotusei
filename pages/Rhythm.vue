@@ -15,13 +15,13 @@
 <style lang="scss">
 body {
   margin: 0;
-  background-color: #222;
 }
 
 .container {
   display: grid;
   grid-template-rows: 33.3% 33.3% 1fr;
   grid-template-columns: 33.3% 33.3% 1fr;
+  background-color: #222;
 }
 
 .btn, .mainbtn {
@@ -46,7 +46,7 @@ export default {
         let flg = false
         const snd1 = new Audio('rhythm/魔王魂  ドラム2-タム2.mp3')
         const snd2 = new Audio('rhythm/魔王魂  ピアノ1-Fコード.mp3')
-        const snd5 = new Audio('rhythm/059_dr_bpm140_4-4_rock.mp3')
+        const snd5 = new Audio('rhythm/erec drum.m4a')
         let elements = document.getElementsByClassName("btn")
         Array.prototype.forEach.call(elements, function (element) {
             element.classList.add("hidden")
