@@ -1,14 +1,14 @@
 <template>
-  <div class="container">
-    <button id="btn1" class="btn">Tap!</button>
-    <button id="btn2" class="btn">Tap!</button>
-    <button id="btn3" class="btn">Tap!</button>
-    <button id="btn4" class="btn">Tap!</button>
-    <button id="btn5" class="mainbtn">Tap!</button>
-    <button id="btn6" class="btn">Tap!</button>
-    <button id="btn7" class="btn">Tap!</button>
-    <button id="btn8" class="btn">Tap!</button>
-    <button id="btn9" class="btn">Tap!</button>
+  <div class="rhythmContainer">
+    <button id="btn1" class="rBtn">Tap!</button>
+    <button id="btn2" class="rBtn">Tap!</button>
+    <button id="btn3" class="rBtn">Tap!</button>
+    <button id="btn4" class="rBtn">Tap!</button>
+    <button id="btn5" class="mainrBtn">Tap!</button>
+    <button id="btn6" class="rBtn">Tap!</button>
+    <button id="btn7" class="rBtn">Tap!</button>
+    <button id="btn8" class="rBtn">Tap!</button>
+    <button id="btn9" class="rBtn">Tap!</button>
   </div>
 </template>
 
@@ -17,14 +17,14 @@ body {
   margin: 0;
 }
 
-.container {
+.rhythmContainer {
   display: grid;
   grid-template-rows: 33.3% 33.3% 1fr;
   grid-template-columns: 33.3% 33.3% 1fr;
   background-color: #222;
 }
 
-.btn, .mainbtn {
+.rBtn, .mainrBtn {
   height: calc(100vh / 3);
   border-radius: 0;
 }
@@ -47,7 +47,7 @@ export default {
         const snd1 = new Audio('rhythm/魔王魂  ドラム2-タム2.mp3')
         const snd2 = new Audio('rhythm/魔王魂  ピアノ1-Fコード.mp3')
         const snd5 = new Audio('rhythm/erec drum.m4a')
-        let elements = document.getElementsByClassName("btn")
+        let elements = document.getElementsByClassName("rBtn")
         Array.prototype.forEach.call(elements, function (element) {
             element.classList.add("hidden")
         })

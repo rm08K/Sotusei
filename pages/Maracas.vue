@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="maracasContainer">
     <button id="switch">Tap!</button>
     <div id="x"></div>
     <div id="target"></div>
@@ -7,7 +7,7 @@
 </template>
 
 <style lang="scss" scoped>
-.container {
+.maracasContainer {
   width: 100%;
   height: 100vh;
   position: relative;
