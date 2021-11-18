@@ -60,12 +60,13 @@ export default {
             DeviceOrientationEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
-                  // 許可を得られた場合、deviceorientationをイベントリスナーに追加
+									// 許可を得られた場合、deviceorientationをイベントリスナーに追加
+									let audioCtx = new AudioContext()
                   window.addEventListener('deviceorientation', (e) => {
 										// deviceorientationのイベント処理
-										x.innerHTML = e.beta
-										y.innerHTML = e.gamma
-										z.innerHTML = e.alpha
+										x.innerHTML = parseInt(e.beta)
+										y.innerHTML = parseInt(e.gamma)
+										z.innerHTML = parseInt(e.alpha)
                   })
                 } else {
 									// 許可を得られなかった場合の処理
