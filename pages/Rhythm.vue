@@ -1,14 +1,14 @@
 <template>
   <div class="rhythmContainer">
-    <button id="btn1" class="rBtn">Tap!</button>
-    <button id="btn2" class="rBtn">Tap!</button>
-    <button id="btn3" class="rBtn">Tap!</button>
-    <button id="btn4" class="rBtn">Tap!</button>
-    <button id="btn5" class="mainrBtn">Tap!</button>
-    <button id="btn6" class="rBtn">Tap!</button>
-    <button id="btn7" class="rBtn">Tap!</button>
-    <button id="btn8" class="rBtn">Tap!</button>
-    <button id="btn9" class="rBtn">Tap!</button>
+    <button id="btn1" class="rBtn">Click!</button>
+    <button id="btn2" class="rBtn">Click!</button>
+    <button id="btn3" class="rBtn">Click!</button>
+    <button id="btn4" class="rBtn">Click!</button>
+    <button id="btn5" class="mainrBtn">Click!</button>
+    <button id="btn6" class="rBtn">Click!</button>
+    <button id="btn7" class="rBtn">Click!</button>
+    <button id="btn8" class="rBtn">Click!</button>
+    <button id="btn9" class="rBtn">Click!</button>
   </div>
 </template>
 
