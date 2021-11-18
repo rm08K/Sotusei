@@ -4,6 +4,7 @@
   <nuxt-link class="topLink" to="/MusicLadar">MusicLadar</nuxt-link>
   <nuxt-link class="topLink" to="/Maracas">Maracas</nuxt-link>
   <nuxt-link class="topLink" to="/Rhythm">Rhythm</nuxt-link>
+  <nuxt-link class="topLink" to="/SmartCoil">SmartCoil</nuxt-link>
 </div>
 </template>
 
