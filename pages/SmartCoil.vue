@@ -16,7 +16,7 @@
   height: 100vh;
   position: relative;
 }
-#switch {
+#smartCoil-button {
   position: absolute;
   display: block;
   font-size: 40px;
@@ -60,23 +60,29 @@ export default {
             DeviceOrientationEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
-									// 許可を得られた場合、deviceorientationをイベントリスナーに追加
-									let audioCtx = new AudioContext()
+                  // 許可を得られた場合、deviceorientationをイベントリスナーに追加
+                  let audioCtx = new AudioContext()
+                  let oscillator = audioCtx.createOscillator()
+                  oscillator.type = 'sine'
+                  let gain = audioCtx.createGain()
+                  gain.gain.value = 50
+                  gain.connect(audioCtx.destination)
+                  oscillator.start()
                   window.addEventListener('deviceorientation', (e) => {
-										// deviceorientationのイベント処理
-										x.innerHTML = parseInt(e.beta)
+                    // deviceorientationのイベント処理
+                    x.innerHTML = parseInt(e.beta)
 										y.innerHTML = parseInt(e.gamma)
-										z.innerHTML = parseInt(e.alpha)
+										oscillator.frequency.value = (parseInt(e.beta) + 360) * 1.5
                   })
                 } else {
-									// 許可を得られなかった場合の処理
-									button.innerHTML = "Error1"
+                  // 許可を得られなかった場合の処理
+                  target.innerHTML = '許可して！'
                 }
               })
               .catch(console.error) // https通信でない場合などで許可を取得できなかった場合
           } else {
-						// 上記以外のブラウザ
-						button.innerHTML = "Error2"
+            // 上記以外のブラウザ
+            button.innerHTML = '非対応ブラウザ！スマホで見てね！'
           }
         }
 
