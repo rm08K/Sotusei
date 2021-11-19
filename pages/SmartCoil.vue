@@ -63,16 +63,17 @@ export default {
                   // 許可を得られた場合、deviceorientationをイベントリスナーに追加
                   let audioCtx = new AudioContext()
                   let oscillator = audioCtx.createOscillator()
-                  oscillator.type = 'sine'
                   let gain = audioCtx.createGain()
-                  gain.gain.value = 50
-                  gain.connect(audioCtx.destination)
+                  gain.gain.value = 0.3
+                  oscillator.type = 'sine'
+                  oscillator.frequency.value = 440
+                  oscillator.connect(gain).connect(audioCtx.destination)
                   oscillator.start()
                   window.addEventListener('deviceorientation', (e) => {
                     // deviceorientationのイベント処理
                     x.innerHTML = parseInt(e.beta)
-										y.innerHTML = parseInt(e.gamma)
-										oscillator.frequency.value = (parseInt(e.beta) + 360) * 1.5
+                    y.innerHTML = parseInt(e.gamma)
+                    oscillator.frequency.value = (parseInt(e.beta) + 360) * 1.5
                   })
                 } else {
                   // 許可を得られなかった場合の処理
@@ -82,16 +83,23 @@ export default {
               .catch(console.error) // https通信でない場合などで許可を取得できなかった場合
           } else {
             // 上記以外のブラウザ
-            button.innerHTML = '非対応ブラウザ！スマホで見てね！'
+            target.innerHTML = '非対応ブラウザ！スマホで見てね！'
           }
         }
 
+        const testSound = () => {
+          let audioCtx = new AudioContext()
+          let oscillator = audioCtx.createOscillator()
+          let gain = audioCtx.createGain()
+          gain.gain.value = 0.3
+          oscillator.type = 'sine'
+          oscillator.frequency.value = 440
+          oscillator.connect(gain).connect(audioCtx.destination)
+          oscillator.start()
+        }
+
         // ボタンクリックでrequestDeviceOrientationPermission実行
-        button.addEventListener(
-          'click',
-          requestDeviceOrientationPermission,
-          false
-        )
+        button.addEventListener('click', requestDeviceOrientationPermission, false)
       }
     },
   },
