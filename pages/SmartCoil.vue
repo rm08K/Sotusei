@@ -73,7 +73,7 @@ export default {
                     // deviceorientationのイベント処理
                     x.innerHTML = parseInt(e.beta)
                     y.innerHTML = parseInt(e.gamma)
-                    oscillator.frequency.value = (parseInt(e.beta) + 360) * 1.5
+                    oscillator.frequency.value = (parseInt(e.beta) + 261) * 2
                   })
                 } else {
                   // 許可を得られなかった場合の処理
