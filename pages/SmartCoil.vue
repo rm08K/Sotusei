@@ -180,15 +180,14 @@ export default {
                   oscillator.type = 'sine'
                   oscillator.frequency.value = 440
                   oscillator.connect(gain).connect(audioCtx.destination)
-                  if (flg) {
+                  if (flg == true) {
                     oscillator.stop()
-                    gain.disconnect()
-                    oscillator.disconnect()
-                    console.log('stopped')
+                    console.log('stop')
                     flg = false
                   } else {
                     oscillator.start()
-                    flg = true
+										flg = true
+										console.log('start')
                   }
                   window.addEventListener('deviceorientation', (e) => {
                     // deviceorientationのイベント処理
