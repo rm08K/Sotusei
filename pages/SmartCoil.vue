@@ -16,7 +16,7 @@
         id="slider"
       />
     </div>
-    <div id="smartCoil-target"></div>
+    <div id="smartCoil-target">バグって鳴らない時は更新してください</div>
   </div>
 </template>
 
