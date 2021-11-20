@@ -43,7 +43,7 @@
 }
 
 .sliderPannel {
-	width: 100%;
+  width: 100%;
   max-width: 500px;
   margin: auto;
   padding-top: 10px;
@@ -172,7 +172,7 @@ export default {
             DeviceOrientationEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
-									// 許可を得られた場合、deviceorientationをイベントリスナーに追加
+                  // 許可を得られた場合、deviceorientationをイベントリスナーに追加
                   let audioCtx = new AudioContext()
                   let oscillator = audioCtx.createOscillator()
                   let gain = audioCtx.createGain()
@@ -180,19 +180,23 @@ export default {
                   oscillator.type = 'sine'
                   oscillator.frequency.value = 440
                   oscillator.connect(gain).connect(audioCtx.destination)
-									if (flg) {
-										oscillator.stop()
-										flg = false
-									} else {
-										oscillator.start()
-										flg = true
-									}
+                  if (flg) {
+                    oscillator.stop()
+                    gain.disconnect()
+                    oscillator.disconnect()
+                    console.log('stopped')
+                    flg = false
+                  } else {
+                    oscillator.start()
+                    flg = true
+                  }
                   window.addEventListener('deviceorientation', (e) => {
                     // deviceorientationのイベント処理
                     x.innerHTML = parseInt(e.beta)
                     y.innerHTML = parseInt(e.gamma)
-										oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5
-										gain.gain.value = document.getElementById('slider').value / 100
+                    oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5
+                    gain.gain.value =
+                      document.getElementById('slider').value / 100
                   })
                 } else {
                   // 許可を得られなかった場合の処理
