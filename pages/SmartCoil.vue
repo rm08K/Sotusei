@@ -153,7 +153,7 @@ export default {
   methods: {
     coil() {
       if (process.client) {
-        console.log('version0.1')
+        console.log('version0.2')
         let x = document.getElementById('smartCoil-x')
         let y = document.getElementById('smartCoil-y')
         let z = document.getElementById('smartCoil-z')
@@ -172,7 +172,7 @@ export default {
             DeviceOrientationEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
-                  // 許可を得られた場合、deviceorientationをイベントリスナーに追加
+									// 許可を得られた場合、deviceorientationをイベントリスナーに追加
                   let audioCtx = new AudioContext()
                   let oscillator = audioCtx.createOscillator()
                   let gain = audioCtx.createGain()
@@ -180,7 +180,13 @@ export default {
                   oscillator.type = 'sine'
                   oscillator.frequency.value = 440
                   oscillator.connect(gain).connect(audioCtx.destination)
-                  oscillator.start()
+									if (flg) {
+										oscillator.stop()
+										flg = false
+									} else {
+										oscillator.start()
+										flg = true
+									}
                   window.addEventListener('deviceorientation', (e) => {
                     // deviceorientationのイベント処理
                     x.innerHTML = parseInt(e.beta)
