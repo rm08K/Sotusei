@@ -6,6 +6,16 @@
       <div id="smartCoil-y"></div>
       <div id="smartCoil-z"></div>
     </div>
+    <div class="sliderPannel">
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="25"
+        class="slider"
+        id="slider"
+      />
+    </div>
     <div id="smartCoil-target"></div>
   </div>
 </template>
@@ -30,6 +40,108 @@
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+}
+
+.sliderPannel {
+	width: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding-top: 10px;
+}
+.slider {
+  width: 100%;
+}
+
+$shadowColor: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+$mainColor: #222;
+$accentColor: #666;
+
+input[type='range'] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type='range']:focus {
+  outline: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: $shadowColor;
+  background: $mainColor;
+  // border-radius: 25px;
+  border: 0px solid #000101;
+}
+input[type='range']::-webkit-slider-thumb {
+  box-shadow: $shadowColor;
+  border: 0px solid #000000;
+  height: 30px;
+  width: 10px;
+  // border-radius: 7px;
+  background: $accentColor;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -9.4px;
+}
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background: $mainColor;
+}
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  // animate: 0.2s;
+  box-shadow: $shadowColor;
+  background: $mainColor;
+  border-radius: 25px;
+  border: 0px solid #000101;
+}
+input[type='range']::-moz-range-thumb {
+  box-shadow: $shadowColor;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: $accentColor;
+  cursor: pointer;
+}
+input[type='range']::-ms-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  // animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 39px 0;
+  color: transparent;
+}
+input[type='range']::-ms-fill-lower {
+  background: $mainColor;
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: $shadowColor;
+}
+input[type='range']::-ms-fill-upper {
+  background: $mainColor;
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: $shadowColor;
+}
+input[type='range']::-ms-thumb {
+  box-shadow: $shadowColor;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: $accentColor;
+  cursor: pointer;
+}
+input[type='range']:focus::-ms-fill-lower {
+  background: $mainColor;
+}
+input[type='range']:focus::-ms-fill-upper {
+  background: $mainColor;
 }
 </style>
 
@@ -73,7 +185,8 @@ export default {
                     // deviceorientationのイベント処理
                     x.innerHTML = parseInt(e.beta)
                     y.innerHTML = parseInt(e.gamma)
-                    oscillator.frequency.value = (parseInt(e.beta) + 261) * 2
+										oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5
+										gain.gain.value = document.getElementById('slider').value / 100
                   })
                 } else {
                   // 許可を得られなかった場合の処理
@@ -99,7 +212,11 @@ export default {
         }
 
         // ボタンクリックでrequestDeviceOrientationPermission実行
-        button.addEventListener('click', requestDeviceOrientationPermission, false)
+        button.addEventListener(
+          'click',
+          requestDeviceOrientationPermission,
+          false
+        )
       }
     },
   },
