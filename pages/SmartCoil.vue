@@ -195,11 +195,13 @@ export default {
                     y.innerHTML = parseInt(e.gamma)
                     if (e.beta <= -90)  {
                       oscillator.frequency.value = -1 * (parseInt(e.beta) + 261) * 2.5
+                      console.log("-90")
                     } else {
                       oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5
+                      console.log("not-90")
                     }
-                    gain.gain.value =
-                      document.getElementById('slider').value / 100
+                    gain.gain.value = document.getElementById('slider').value / 100
+                    console.log(oscillator.frequency.value)
                   })
                 } else {
                   // 許可を得られなかった場合の処理
