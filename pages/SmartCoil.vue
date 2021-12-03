@@ -193,7 +193,11 @@ export default {
                     // deviceorientationのイベント処理
                     x.innerHTML = parseInt(e.beta)
                     y.innerHTML = parseInt(e.gamma)
-                    oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5
+                    if (e.beta <= -90)  {
+                      oscillator.frequency.value = -1 * (parseInt(e.beta) + 261) * 2.5
+                    } else {
+                      oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5
+                    }
                     gain.gain.value =
                       document.getElementById('slider').value / 100
                   })
