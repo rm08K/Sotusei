@@ -195,12 +195,14 @@ export default {
                     y.innerHTML = parseInt(e.gamma)
                     if (e.beta <= -90)  {
                       oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5 + 896
-                      console.log("-90")
                     } else {
                       oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5
-                      console.log("not-90")
                     }
-                    gain.gain.value = document.getElementById('slider').value / 100
+                    if (-60 <= e.gamma　&& e.gamma <= 60) {
+                      gain.gain.value = document.getElementById('slider').value / 100
+                    } else {
+                      gain.gain.value = 0
+                    }
                     console.log(oscillator.frequency.value)
                   })
                 } else {
