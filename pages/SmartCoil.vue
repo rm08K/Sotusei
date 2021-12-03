@@ -198,12 +198,7 @@ export default {
                     } else {
                       oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5
                     }
-                    // if (-60 <= e.gamma　&& e.gamma <= 60) {
                       gain.gain.value = document.getElementById('slider').value / 100
-                    // } else {
-                    //   gain.gain.value = 0
-                    // }
-                    // console.log(oscillator.frequency.value)
                   })
                 } else {
                   // 許可を得られなかった場合の処理
