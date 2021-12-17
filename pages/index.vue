@@ -16,6 +16,7 @@
 <style lang="scss">
   body {
     margin: 0;
+    background-color: rgb(209, 240, 252);
   }
   a {
     display: block;
