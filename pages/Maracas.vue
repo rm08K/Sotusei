@@ -6,11 +6,16 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+body {
+  margin: 0;
+}
+
 .maracasContainer {
   width: 100%;
   height: 100vh;
   position: relative;
+  background-color: rgb(209, 240, 252);
 }
 #switch {
   position: absolute;
