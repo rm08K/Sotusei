@@ -38,6 +38,18 @@ export default {
     maracas() {
       if (process.client) {
         console.log("version1.0")
+        // リロード
+        let cookies = document.cookie
+        let cookiesArray = cookies.split(';')
+        for (var c of cookiesArray) {
+          let cArray = c.split('=')
+          if (cArray[0] == 'flg2') {
+            console.log('ready')
+          } else {
+            document.cookie = "flg2=1;max-age=5"
+            location.reload()
+          }
+        }
         let x = document.getElementById("x")
         let button = document.getElementById("switch")
         let size = 20
