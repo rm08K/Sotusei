@@ -20,11 +20,16 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+body {
+  margin: 0;
+}
+
 .smartcoilContainer {
   width: 100%;
   height: 100vh;
   position: relative;
+  background-color: rgb(209, 240, 252);
 }
 #smartCoil-button {
   position: absolute;
@@ -153,7 +158,19 @@ export default {
   methods: {
     coil() {
       if (process.client) {
-        console.log('version0.2')
+        console.log('version0.3')
+        // リロード
+        let cookies = document.cookie
+        let cookiesArray = cookies.split(';')
+        for (var c of cookiesArray) {
+          let cArray = c.split('=')
+          if (cArray[0] == 'flg') {
+            console.log('ready')
+          } else {
+            document.cookie = "flg=1;max-age=5"
+            location.reload()
+          }
+        }
         let x = document.getElementById('smartCoil-x')
         let y = document.getElementById('smartCoil-y')
         let z = document.getElementById('smartCoil-z')
