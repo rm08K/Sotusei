@@ -162,6 +162,14 @@ export default {
         let flg = false
         let count = 0
         let target = document.getElementById('smartCoil-target')
+        let cookies = document.cookie
+        let cookiesArray = cookies.split(';')
+        for (var c of cookiesArray) {
+          let cArray = c.split('=')
+          if (cArray[0] == 'flg') {
+            target.innerHTML = 'もう一度タップ！'
+          }
+        }
         // const sound = new Audio('maracas/maracas.mp3')
         const requestDeviceOrientationPermission = () => {
           if (
@@ -174,13 +182,11 @@ export default {
                 if (permissionState === 'granted') {
                   // 許可を得られた場合の処理
                   // リロード
-                  let cookies = document.cookie
-                  let cookiesArray = cookies.split(';')
                   for (var c of cookiesArray) {
                     let cArray = c.split('=')
                     if (cArray[0] == 'flg') {
                       console.log('ready')
-                      target.innerHTML = 'もう一度タップ！'
+                      target.innerHTML = '♪'
                     } else {
                       document.cookie = 'flg=1;max-age=5'
                       location.reload()
