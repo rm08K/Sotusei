@@ -1,8 +1,8 @@
 <template>
   <div class="maracasContainer">
     <button id="switch">Tap!</button>
-    <div id="x"></div>
     <div id="target"></div>
+    <div id="x"></div>
   </div>
 </template>
 
