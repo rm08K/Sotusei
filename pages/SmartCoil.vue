@@ -218,7 +218,6 @@ export default {
           window.addEventListener('deviceorientation', (e) => {
             // deviceorientationのイベント処理
             x.innerHTML = parseInt(e.beta)
-            y.innerHTML = parseInt(e.gamma)
             if (e.beta <= -90) {
               oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5 + 896
             } else {
