@@ -1,5 +1,5 @@
 <template>
-  <div class="smartcoilContainer">
+  <div id="smartcoilContainer" class="smartcoilContainer">
     <button id="smartCoil-button">Tap!</button>
     <div class="sliderPannel">
       <input
@@ -49,8 +49,9 @@ body {
   width: 100%;
   max-width: 500px;
   margin: auto;
-  padding-top: 10px;
+  padding-top: 600px;
 }
+
 .slider {
   width: 100%;
 }
@@ -162,6 +163,8 @@ export default {
         let flg = false
         let count = 0
         let target = document.getElementById('smartCoil-target')
+        let vh = window.innerHeight;
+        document.getElementById('smartcoilContainer').style.height = vh+'px';
         let cookies = document.cookie
         let cookiesArray = cookies.split(';')
         for (var c of cookiesArray) {
@@ -186,7 +189,7 @@ export default {
                     let cArray = c.split('=')
                     if (cArray[0] == 'flg') {
                       console.log('ready')
-                      target.innerHTML = '♪'
+                      button.innerHTML = '♪'
                     } else {
                       document.cookie = 'flg=1;max-age=5'
                       location.reload()
