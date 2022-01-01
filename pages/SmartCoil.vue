@@ -1,11 +1,6 @@
 <template>
   <div class="smartcoilContainer">
     <button id="smartCoil-button">Tap!</button>
-    <div class="smartCoil-coordinate">
-      <div id="smartCoil-x"></div>
-      <div id="smartCoil-y"></div>
-      <div id="smartCoil-z"></div>
-    </div>
     <div class="sliderPannel">
       <input
         type="range"
@@ -17,6 +12,9 @@
       />
     </div>
     <div id="smartCoil-target">バグって鳴らない時は更新してください</div>
+    <div class="smartCoil-coordinate">
+      <div id="smartCoil-x"></div>
+    </div>
   </div>
 </template>
 
