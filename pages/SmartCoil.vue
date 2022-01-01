@@ -14,7 +14,6 @@
     <div id="smartCoil-target">バグって鳴らない時は更新してください</div>
     <div class="smartCoil-coordinate">
       <div id="smartCoil-x"></div>
-      <div id="smartCoil-y"></div>
     </div>
   </div>
 </template>
@@ -171,8 +170,6 @@ export default {
           }
         }
         let x = document.getElementById('smartCoil-x')
-        let y = document.getElementById('smartCoil-y')
-        let z = document.getElementById('smartCoil-z')
         let button = document.getElementById('smartCoil-button')
         let flg = false
         let count = 0
