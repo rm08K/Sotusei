@@ -14,6 +14,7 @@
     <div id="smartCoil-target">バグって鳴らない時は更新してください</div>
     <div class="smartCoil-coordinate">
       <div id="smartCoil-x"></div>
+      <div id="smartCoil-y"></div>
     </div>
   </div>
 </template>
