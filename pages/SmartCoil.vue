@@ -157,18 +157,6 @@ export default {
     coil() {
       if (process.client) {
         console.log('version0.3')
-        // リロード
-        let cookies = document.cookie
-        let cookiesArray = cookies.split(';')
-        for (var c of cookiesArray) {
-          let cArray = c.split('=')
-          if (cArray[0] == 'flg') {
-            console.log('ready')
-          } else {
-            document.cookie = "flg=1;max-age=5"
-            location.reload()
-          }
-        }
         let x = document.getElementById('smartCoil-x')
         let button = document.getElementById('smartCoil-button')
         let flg = false
@@ -185,6 +173,19 @@ export default {
               .then((permissionState) => {
                 if (permissionState === 'granted') {
                   // 許可を得られた場合の処理
+                  // リロード
+                  let cookies = document.cookie
+                  let cookiesArray = cookies.split(';')
+                  for (var c of cookiesArray) {
+                    let cArray = c.split('=')
+                    if (cArray[0] == 'flg') {
+                      console.log('ready')
+                      target.innerHTML = 'もう一度タップ！'
+                    } else {
+                      document.cookie = 'flg=1;max-age=5'
+                      location.reload()
+                    }
+                  }
                   deviceMotionEvents()
                 } else {
                   // 許可を得られなかった場合の処理
