@@ -286,7 +286,10 @@ body {
   width: 100%;
   max-width: 500px;
   margin: auto;
-  padding-top: 600px;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .slider {
