@@ -287,7 +287,7 @@ body {
   max-width: 500px;
   margin: auto;
   position: absolute;
-  bottom: 100px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
 }
