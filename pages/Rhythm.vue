@@ -4,11 +4,14 @@
     <button id="btn2" class="rBtn">Click!</button>
     <button id="btn3" class="rBtn">Click!</button>
     <button id="btn4" class="rBtn">Click!</button>
-    <button id="btn5" class="mainrBtn">Click!</button>
+    <button id="btn5" class="rBtn">Click!</button>
     <button id="btn6" class="rBtn">Click!</button>
     <button id="btn7" class="rBtn">Click!</button>
     <button id="btn8" class="rBtn">Click!</button>
     <button id="btn9" class="rBtn">Click!</button>
+    <div id="startBtn" class="rhythm-firstView">
+      <p class="rhythm-startBtn">Click to Start</p>
+    </div>
   </div>
 </template>
 
@@ -24,16 +27,28 @@ body {
   background-color: #222;
 }
 
-.rBtn,
-.mainrBtn {
+.rhythm {
+  &-firstView {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #222;
+    justify-content: center;
+    align-items: center;
+  }
+  &-startBtn {
+    display: block;
+    padding: 20px 50px;
+    border: 2px solid #111;
+    background-color: #fff;
+  }
+}
+
+.rBtn {
   height: calc(100vh / 3);
   border-radius: 0;
 }
-
-// .rBtn:active,
-// .mainrBtn:active {
-//   background-color: #000;;
-// }
 
 .hidden {
   visibility: hidden;
@@ -61,12 +76,16 @@ body {
 
 .push {
   background-color: #000;
-  animation: pused .5s ease;
+  animation: pused 0.5s ease;
 }
 
 @keyframes pused {
-  0% { background-color: #000;}
-  100% {background-color: #fff;}
+  0% {
+    background-color: #000;
+  }
+  100% {
+    background-color: #fff;
+  }
 }
 </style>
 
@@ -90,83 +109,69 @@ export default {
         const snd8 = new Audio('rhythm/魔王魂  ベース05.mp3')
         let bgm1 = new Audio('rhythm/erec drum.m4a')
         let elements = document.getElementsByClassName('rBtn')
-        Array.prototype.forEach.call(elements, function (element) {
-          element.classList.add('hidden')
-        })
-        document.getElementById('btn5').addEventListener('click', () => {
-          if (flg == false) {
-            bgm1.currentTime = 0
-            bgm1.play()
-            bgm1.loop = true
-            setTimeout(() => {
-              flg = true
-            }, 100)
-            // flg = true
-            console.log(flg)
-            Array.prototype.forEach.call(elements, function (element) {
-              element.classList.remove('hidden')
-            })
-            setInterval(fontRhythm,470)
-          }
+        document.getElementById('startBtn').addEventListener('click', () => {
+          bgm1.currentTime = 0
+          bgm1.play()
+          bgm1.loop = true
+          document.getElementById('startBtn').classList.add('hidden')
+          setInterval(fontRhythm, 470)
         })
         document.getElementById('btn1').addEventListener('click', () => {
           snd1.currentTime = 0
           snd1.play()
-          colorChanger("btn1")
+          colorChanger('btn1')
           console.log('pushed')
         })
         document.getElementById('btn2').addEventListener('click', () => {
           snd2.currentTime = 0
           snd2.play()
-          colorChanger("btn2")
+          colorChanger('btn2')
           console.log('pushed')
         })
         document.getElementById('btn3').addEventListener('click', () => {
           snd3.currentTime = 0
           snd3.play()
-          colorChanger("btn3")
+          colorChanger('btn3')
           console.log('pushed')
         })
         document.getElementById('btn4').addEventListener('click', () => {
           snd4.currentTime = 0
           snd4.play()
-          colorChanger("btn4")
+          colorChanger('btn4')
           console.log('pushed')
         })
         document.getElementById('btn5').addEventListener('click', () => {
-          if (flg == true) {
-            snd5.currentTime = 0
-            snd5.play()
-            colorChanger("btn5")
-            console.log('pushed')
-          }
+          snd5.currentTime = 0
+          snd5.play()
+          colorChanger('btn5')
+          console.log('pushed')
         })
         document.getElementById('btn6').addEventListener('click', () => {
           snd6.currentTime = 0
           snd6.play()
-          colorChanger("btn6")
+          colorChanger('btn6')
           console.log('pushed')
         })
         document.getElementById('btn7').addEventListener('click', () => {
           snd7.currentTime = 0
           snd7.play()
-          colorChanger("btn7")
+          colorChanger('btn7')
           console.log('pushed')
         })
         document.getElementById('btn8').addEventListener('click', () => {
           snd8.currentTime = 0
           snd8.play()
-          colorChanger("btn8")
+          colorChanger('btn8')
           console.log('pushed')
         })
         let fontRhythm = function () {
           Array.prototype.forEach.call(elements, function (element) {
-              element.classList.remove('f5')
+            element.classList.remove('f5')
           })
           Array.prototype.forEach.call(elements, function (element) {
             element.classList.add('f1')
           })
-          console.log("roop")
+          console.log('roop')
           setTimeout(() => {
             Array.prototype.forEach.call(elements, function (element) {
               element.classList.remove('f1')
@@ -201,7 +206,7 @@ export default {
           }, 50)
         }
 
-        let colorChanger = function(num) {
+        let colorChanger = function (num) {
           document.getElementById(`${num}`).classList.add('push')
           setTimeout(() => {
             document.getElementById(`${num}`).classList.remove('push')
@@ -209,11 +214,14 @@ export default {
         }
 
         // ページ遷移時の処理
-        history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
-        window.addEventListener('popstate', function(e) {
+        history.replaceState(
+          null,
+          document.getElementsByTagName('title')[0].innerHTML,
+          null
+        )
+        window.addEventListener('popstate', function (e) {
           location.reload()
         })
-
       } //終了
     },
   },
