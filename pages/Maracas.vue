@@ -130,7 +130,7 @@ export default {
                         setTimeout(()=>{
                           str = Math.floor(Math.random() * 3 + 1)
                           console.log(str)
-                          sArray[str].load
+                          sArray[str].load()
                           flg = true
                         },500)
                       }
