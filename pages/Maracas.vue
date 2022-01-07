@@ -121,7 +121,7 @@ export default {
                     if (e.acceleration.x < -5 || e.acceleration.x > 5) {
                       console.log('fire')
                       if (flg == true) {
-                        sArray[str].currentTime = 0
+                        // sArray[str].currentTime = 0
                         sArray[str].play()
                         count += 1
                         x.innerHTML = count
