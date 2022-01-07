@@ -76,7 +76,7 @@ export default {
   methods: {
     maracas() {
       if (process.client) {
-        console.log("version1.0")
+        console.log('version1.0')
         // リロード
         let cookies = document.cookie
         let cookiesArray = cookies.split(';')
@@ -85,17 +85,21 @@ export default {
           if (cArray[0] == 'flg2') {
             console.log('ready')
           } else {
-            document.cookie = "flg2=1;max-age=5"
+            document.cookie = 'flg2=1;max-age=5'
             location.reload()
           }
         }
-        let x = document.getElementById("x")
-        let button = document.getElementById("switch")
-        let size = 20
+        let x = document.getElementById('x')
+        let button = document.getElementById('switch')
         let flg = true
         let count = 0
         let target = document.getElementById('target')
-        const sound = new Audio('maracas/maracas.mp3')
+        const sound1 = new Audio('maracas/maracas_01.wav')
+        const sound2 = new Audio('maracas/maracas_01.wav')
+        const sound3 = new Audio('maracas/maracas_01.wav')
+        let sArray = [sound1, sound2, sound3]
+        let str = 1
+        console.log(sArray)
         const requestDeviceMotionPermission = () => {
           if (
             DeviceMotionEvent &&
@@ -106,18 +110,20 @@ export default {
             DeviceMotionEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
-                  button.innerHTML = "Shake!"
-                  sound.load()
+                  button.innerHTML = 'Shake!'
+                  sound1.load()
+                  sound2.load()
+                  sound3.load()
                   // 許可を得られた場合、devicemotionをイベントリスナーに追加
                   window.addEventListener('devicemotion', (e) => {
                     // devicemotionのイベント処理
-                    target.innerHTML = Math.floor(e.acceleration.x　* 10)　/ 10 
-                    if(e.acceleration.x < -5 || e.acceleration.x > 5){
-                      if(flg == true){
+                    target.innerHTML = Math.floor(e.acceleration.x * 10) / 10
+                    if (e.acceleration.x < -5 || e.acceleration.x > 5) {
+                      if (flg == true) {
+                        sArray[str].currentTime = 0
+                        sArray[str].play()
                         count += 1
                         x.innerHTML = count
-                        sound.currentTime = 0
-                        sound.play()
                         flg = false
                         console.log(flg)
                       }
@@ -125,23 +131,28 @@ export default {
                   })
                 } else {
                   // 許可を得られなかった場合の処理
-                  button.innerHTML = "error"
+                  button.innerHTML = 'error'
                 }
               })
               .catch(console.error) // https通信でない場合などで許可を取得できなかった場合
           } else {
             // 上記以外のブラウザ
-            button.innerHTML = "error"
+            button.innerHTML = 'error'
           }
         }
 
         // ボタンクリックでrequestDeviceMotionPermission実行
         const startButton = document.getElementById('switch')
-        startButton.addEventListener('click',requestDeviceMotionPermission,false)
+        startButton.addEventListener(
+          'click',
+          requestDeviceMotionPermission,
+          false
+        )
 
-        sound.onended = ()=>{
+        sArray[str].onended = () => {
           flg = true
-          console.log(flg)
+          str = Math.floor(Math.random() * 2 + 1)
+          console.log(str)
         }
       }
     },
