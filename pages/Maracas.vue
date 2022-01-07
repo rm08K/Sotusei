@@ -121,12 +121,16 @@ export default {
                     if (e.acceleration.x < -5 || e.acceleration.x > 5) {
                       console.log('fire')
                       if (flg == true) {
-                        // sArray[str].currentTime = 0
+                        flg = false
                         sArray[str].play()
                         count += 1
                         x.innerHTML = count
-                        flg = false
                         console.log(flg)
+                        setTimeout(()=>{
+                          str = Math.floor(Math.random() * 3 + 1)
+                          console.log(str)
+                          flg = true
+                        },500)
                       }
                     }
                   })
@@ -150,11 +154,11 @@ export default {
           false
         )
 
-        sArray[str].onended = () => {
-          flg = true
-          str = Math.floor(Math.random() * 3 + 1)
-          console.log(str)
-        }
+        // sArray[str].onended = () => {
+        //   flg = true
+        //   str = Math.floor(Math.random() * 3 + 1)
+        //   console.log(str)
+        // }
       }
     },
   },
