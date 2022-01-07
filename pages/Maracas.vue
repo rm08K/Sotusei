@@ -122,6 +122,7 @@ export default {
                       console.log('fire')
                       if (flg == true) {
                         flg = false
+                        sArray[str].currentTime = 0
                         sArray[str].play()
                         count += 1
                         x.innerHTML = count
@@ -129,6 +130,7 @@ export default {
                         setTimeout(()=>{
                           str = Math.floor(Math.random() * 3 + 1)
                           console.log(str)
+                          sArray[str].load
                           flg = true
                         },500)
                       }
