@@ -3,6 +3,10 @@
     <button id="switch">Tap!</button>
     <div id="target"></div>
     <div id="x"></div>
+    <div id="maracas-shutoutWall">
+      <p id="maracas-text">この楽器はスマートフォン専用です！</p>
+      <MaracasQR />
+    </div>
   </div>
 </template>
 
@@ -17,6 +21,30 @@ body {
   position: relative;
   background-color: rgb(209, 240, 252);
 }
+
+#maracas {
+  &-shutoutWall {
+    position: absolute;
+    top: 0;
+    background-color: pink;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+  &-text {
+    margin-top: 100px;
+  }
+  &-svg {
+    margin-top: 50px;
+    width: 250px;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    padding: 20px;
+  }
+}
+
 #switch {
   position: absolute;
   display: block;
@@ -43,6 +71,12 @@ export default {
     maracas() {
       if (process.client) {
         console.log("version1.0")
+        // スマホの幅以上を弾く
+        let width = window.innerWidth
+        if (width >= 600) {
+          document.getElementById('maracas-shutoutWall').style.display =
+            'block'
+        }
         // リロード
         let cookies = document.cookie
         let cookiesArray = cookies.split(';')
