@@ -71,6 +71,12 @@ body {
   }
 }
 
+@media screen and (min-width: 600px) {
+  #smartCoil-shutoutWall {
+    display: block;
+  }
+}
+
 .sliderPannel {
   width: 100%;
   max-width: 500px;
@@ -194,12 +200,6 @@ export default {
         document.getElementById('smartcoilContainer').style.height = vh + 'px'
         document.getElementById('smartCoil-shutoutWall').style.height =
           vh + 'px'
-        // スマホの幅以上を弾く
-        let width = window.innerWidth
-        if (width >= 600) {
-          document.getElementById('smartCoil-shutoutWall').style.display =
-            'block'
-        }
         // キャッシュのリロード判断
         let cookies = document.cookie
         let cookiesArray = cookies.split(';')

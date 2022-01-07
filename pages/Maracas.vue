@@ -45,6 +45,12 @@ body {
   }
 }
 
+@media screen and (min-width: 600px) {
+  #maracas-shutoutWall {
+    display: block;
+  }
+}
+
 #switch {
   position: absolute;
   display: block;
@@ -71,12 +77,6 @@ export default {
     maracas() {
       if (process.client) {
         console.log("version1.0")
-        // スマホの幅以上を弾く
-        let width = window.innerWidth
-        if (width >= 600) {
-          document.getElementById('maracas-shutoutWall').style.display =
-            'block'
-        }
         // リロード
         let cookies = document.cookie
         let cookiesArray = cookies.split(';')
