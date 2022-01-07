@@ -88,7 +88,7 @@ export default {
         const snd6 = new Audio('rhythm/魔王魂  ピアノ1-Fコード.mp3')
         const snd7 = new Audio('rhythm/魔王魂  ベース02.mp3')
         const snd8 = new Audio('rhythm/魔王魂  ベース05.mp3')
-        const bgm1 = new Audio('rhythm/erec drum.m4a')
+        let bgm1 = new Audio('rhythm/erec drum.m4a')
         let elements = document.getElementsByClassName('rBtn')
         Array.prototype.forEach.call(elements, function (element) {
           element.classList.add('hidden')
@@ -200,12 +200,20 @@ export default {
             }, 50)
           }, 50)
         }
+
         let colorChanger = function(num) {
           document.getElementById(`${num}`).classList.add('push')
           setTimeout(() => {
             document.getElementById(`${num}`).classList.remove('push')
           }, 300)
         }
+
+        // ページ遷移時の処理
+        history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+        window.addEventListener('popstate', function(e) {
+          location.reload()
+        })
+
       } //終了
     },
   },
