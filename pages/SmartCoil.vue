@@ -244,6 +244,12 @@ export default {
           }
         }
 
+        // ページを出る時の処理
+        history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
+        window.addEventListener('popstate', function(e) {
+          oscillator.stop()
+        })
+
         const deviceMotionEvents = () => {
           let audioCtx = new AudioContext()
           let oscillator = audioCtx.createOscillator()
