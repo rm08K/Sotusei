@@ -95,8 +95,8 @@ export default {
         let count = 0
         let target = document.getElementById('target')
         const sound1 = new Audio('maracas/maracas_01.wav')
-        const sound2 = new Audio('maracas/maracas_01.wav')
-        const sound3 = new Audio('maracas/maracas_01.wav')
+        const sound2 = new Audio('maracas/maracas_02.wav')
+        const sound3 = new Audio('maracas/maracas_03.wav')
         let sArray = [sound1, sound2, sound3]
         let str = 1
         console.log(sArray)
@@ -119,6 +119,7 @@ export default {
                     // devicemotionのイベント処理
                     target.innerHTML = Math.floor(e.acceleration.x * 10) / 10
                     if (e.acceleration.x < -5 || e.acceleration.x > 5) {
+                      console.log('fire')
                       if (flg == true) {
                         sArray[str].currentTime = 0
                         sArray[str].play()
@@ -151,7 +152,7 @@ export default {
 
         sArray[str].onended = () => {
           flg = true
-          str = Math.floor(Math.random() * 2 + 1)
+          str = Math.floor(Math.random() * 3 + 1)
           console.log(str)
         }
       }
