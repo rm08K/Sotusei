@@ -13,7 +13,7 @@
           <p class="topCategory-flexBox_context">マウスでぐりぐりできるオシレーターです。音楽を奏でよう。</p>
         </div>
       </div>
-      <div class="topCategory-flexBox">
+      <div class="topCategory-flexBox reverse">
         <div class="topCategory-flexBox_contents">
           <h3>Rhythm</h3>
           <p class="topCategory-flexBox_context">叩くビート ランチパッド</p>
@@ -59,6 +59,7 @@ a {
   &-flexBox {
     margin-top: 50px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     &_contents {
       width: 500px;
@@ -67,6 +68,9 @@ a {
       margin: 5px 0;
     }
   }
+}
+.reverse {
+  flex-wrap: wrap-reverse;
 }
 .topText {
   text-align: center;
