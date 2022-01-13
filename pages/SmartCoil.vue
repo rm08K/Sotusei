@@ -231,7 +231,7 @@ export default {
                       location.reload()
                     }
                   }
-                  deviceMotionEvents()
+                  smartCoilEvents()
                 } else {
                   // 許可を得られなかった場合の処理
                   target.innerHTML = '許可して！'
@@ -240,7 +240,7 @@ export default {
               .catch(console.error) // https通信でない場合などで許可を取得できなかった場合
           } else {
             // 上記以外のブラウザ
-            deviceMotionEvents()
+            smartCoilEvents()
           }
         }
 
@@ -250,7 +250,7 @@ export default {
           oscillator.stop()
         })
 
-        const deviceMotionEvents = () => {
+        const smartCoilEvents = () => {
           let audioCtx = new AudioContext()
           let oscillator = audioCtx.createOscillator()
           let gain = audioCtx.createGain()
