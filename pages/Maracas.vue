@@ -128,7 +128,7 @@ export default {
                         x.innerHTML = count
                         console.log(flg)
                         setTimeout(()=>{
-                          str = Math.floor(Math.random() * 3 + 1)
+                          str = Math.floor(Math.random() * 3)
                           console.log(str)
                           sArray[str].load()
                           flg = true
