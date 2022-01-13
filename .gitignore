@@ -88,3 +88,8 @@ sw.*
 
 # Vim swap files
 *.swp
+
+
+#ローカル証明書
+localhost-key.pem
+localhost.pem
