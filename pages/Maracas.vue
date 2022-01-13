@@ -110,32 +110,7 @@ export default {
             DeviceMotionEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
-                  button.innerHTML = 'Shake!'
-                  sound1.load()
-                  sound2.load()
-                  sound3.load()
-                  // 許可を得られた場合、devicemotionをイベントリスナーに追加
-                  window.addEventListener('devicemotion', (e) => {
-                    // devicemotionのイベント処理
-                    target.innerHTML = Math.floor(e.acceleration.x * 10) / 10
-                    if (e.acceleration.x < -5 || e.acceleration.x > 5) {
-                      console.log('fire')
-                      if (flg == true) {
-                        flg = false
-                        sArray[str].currentTime = 0
-                        sArray[str].play()
-                        count += 1
-                        x.innerHTML = count
-                        console.log(flg)
-                        setTimeout(()=>{
-                          str = Math.floor(Math.random() * 3)
-                          console.log(str)
-                          sArray[str].load()
-                          flg = true
-                        },500)
-                      }
-                    }
-                  })
+                  maracasEvents()
                 } else {
                   // 許可を得られなかった場合の処理
                   button.innerHTML = 'error'
@@ -144,7 +119,7 @@ export default {
               .catch(console.error) // https通信でない場合などで許可を取得できなかった場合
           } else {
             // 上記以外のブラウザ
-            button.innerHTML = 'error'
+            maracasEvents()
           }
         }
 
@@ -156,11 +131,34 @@ export default {
           false
         )
 
-        // sArray[str].onended = () => {
-        //   flg = true
-        //   str = Math.floor(Math.random() * 3 + 1)
-        //   console.log(str)
-        // }
+        const maracasEvents = () => {
+          button.innerHTML = 'Shake!'
+          sound1.load()
+          sound2.load()
+          sound3.load()
+          // 許可を得られた場合、devicemotionをイベントリスナーに追加
+          window.addEventListener('devicemotion', (e) => {
+            // devicemotionのイベント処理
+            target.innerHTML = Math.floor(e.acceleration.x * 10) / 10
+            if (e.acceleration.x < -5 || e.acceleration.x > 5) {
+              console.log('fire')
+              if (flg == true) {
+                flg = false
+                sArray[str].currentTime = 0
+                sArray[str].play()
+                count += 1
+                x.innerHTML = count
+                console.log(flg)
+                setTimeout(()=>{
+                  str = Math.floor(Math.random() * 3)
+                  console.log(str)
+                  sArray[str].load()
+                  flg = true
+                },500)
+              }
+            }
+          })
+        }
       }
     },
   },
