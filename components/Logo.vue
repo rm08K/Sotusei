@@ -64,6 +64,6 @@
 		width: 100%;
 		max-width: 300px;
 		display: block;
-		margin: 10px auto;
+		margin: 10px auto 30px auto;
 	}
 </style>

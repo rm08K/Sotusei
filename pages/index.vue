@@ -1,20 +1,20 @@
 <template>
   <div class="topContainer">
-    <Logo class="test"/>
+    <Logo />
     <!-- <h1 class="topTitle">奏でる空想楽器</h1> -->
     <h2 class="topCategory-h2 pc">PC</h2>
     <div class="topCategory pc">
       <div class="topCategory-flexBox pc">
         <nuxt-link class="topLink" to="/MusicLadar"><MusicLaderLogo /></nuxt-link>
         <div class="topCategory-flexBox_contents">
-          <h3>MusicLader</h3>
+          <h3><nuxt-link to="/MusicLadar">MusicLader</nuxt-link></h3>
           <p class="topCategory-flexBox_context">音を探す地図</p>
           <p class="topCategory-flexBox_context">マウスでぐりぐりできるオシレーターです。音楽を奏でよう。</p>
         </div>
       </div>
       <div class="topCategory-flexBox pc reverse">
         <div class="topCategory-flexBox_contents">
-          <h3>Rhythm</h3>
+          <h3><nuxt-link to="/Rhythm">Rhythm</nuxt-link></h3>
           <p class="topCategory-flexBox_context">叩くビート ランチパッド</p>
           <p class="topCategory-flexBox_context">ナウでヤングなリズムが流れます。クリックすると音がなるよ！</p>
         </div>
@@ -26,14 +26,14 @@
       <div class="topCategory-flexBox">
         <nuxt-link class="topLink" to="/Maracas"><MaracasLogo /></nuxt-link>
         <div class="topCategory-flexBox_contents">
-          <h3>Maracas</h3>
+          <h3><nuxt-link to="/Maracas">Maracas</nuxt-link></h3>
           <p class="topCategory-flexBox_context">振って。</p>
           <p class="topCategory-flexBox_context">なんとスマホがマラカスになっちゃうんです。さぁ振ってみよう！</p>
         </div>
       </div>
       <div class="topCategory-flexBox reverse">
         <div class="topCategory-flexBox_contents">
-          <h3>SmartCoil</h3>
+          <h3><nuxt-link to="/SmartCoil">SmartCoil</nuxt-link></h3>
           <p class="topCategory-flexBox_context">不思議なコイル</p>
           <p class="topCategory-flexBox_context">スマートフォンから不思議なサウンド。あなたも音の魔術師になれるかも！</p>
         </div>
@@ -68,6 +68,9 @@ body {
 }
 a {
   display: block;
+  &:visited {
+    color: rgb(63, 63, 63);
+  }
 }
 svg {
   animation: 1.5s appear;
@@ -108,23 +111,17 @@ svg {
     opacity: 0.7;
   }
 }
-.atopLink {
-  width: 50%;
-  max-width: 300px;
-  text-align: center;
-  // margin: auto;
-  margin-bottom: 10px;
-  border: 1px solid black;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 10px;
-  color: white;
-  background-color: #333;
-}
 
 @media screen and (max-width: 600px) {
   .pc {
     display: none;
+  }
+  .topCategory {
+    &-flexBox {
+      &_contents {
+        margin: 5px;
+      }
+    }
   }
 }
 </style>

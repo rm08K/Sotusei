@@ -45,7 +45,6 @@ export default {
     },
     musicLadar() {
       if (process.client) {
-        console.log('js file pass')
         var audioCtx
         var oscillator
         var gain
@@ -94,7 +93,7 @@ export default {
         }
         let hzchange = function () {
           oscillator.frequency.value =
-            100 + 2 * parseInt(document.getElementById('x').innerHTML)
+            100 + 1.7 * parseInt(document.getElementById('x').innerHTML)
         }
         touchPannel.addEventListener('mousemove', hzchange, false)
         let lfochange = function () {
@@ -132,8 +131,8 @@ body {
 
 .touchPannel {
   display: flex;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   color: #fff;
   border: solid 4px #222;
   user-select: none;
@@ -157,14 +156,15 @@ body {
     background-color: #333;
     border: 4px solid #222;
     border-radius: 50%;
-    margin: 20px;
+    margin: 20px 30px;
   }
 }
 
 .sliderPannel {
-  max-width: 500px;
+  max-width: 600px;
   margin: auto;
   padding-top: 10px;
+  text-align: center;
 }
 
 .slider {

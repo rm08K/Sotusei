@@ -350,4 +350,15 @@
 	svg {
 		width: 300px;
 	}
+  @media screen and (max-width: 600px) {
+  svg {
+    width: 90vw;
+  }
+  .smartcoillogo-1 {
+    display: none;
+  }
+  .smartcoillogo-2 {
+    display: none;
+  }
+}
 </style>
