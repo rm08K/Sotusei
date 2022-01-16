@@ -1,6 +1,7 @@
 <template>
-  <div class="maracasContainer">
-    <button id="switch">Tap!</button>
+  <div id="maracasContainer" class="maracasContainer">
+  <div id="maracas-backGround" class="maracas-backGround"></div>
+    <button class="switch" id="switch">Tap!</button>
     <div id="target"></div>
     <div id="x"></div>
     <div id="maracas-shutoutWall">
@@ -19,7 +20,15 @@ body {
   width: 100%;
   height: 100vh;
   position: relative;
-  background-color: rgb(209, 240, 252);
+}
+
+#target {
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  top: 150px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #maracas {
@@ -51,7 +60,29 @@ body {
   }
 }
 
-#switch {
+.maracas {
+  &-backGround {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, #fffb3c, #33ff43);
+    background-size: 400% 400%;
+    -webkit-animation: MaracasBGAnime 19s ease infinite;
+    -moz-animation: MaracasBGAnime 19s ease infinite;
+    animation: MaracasBGAnime 19s ease infinite;
+  }
+}
+
+@keyframes MaracasBGAnime {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+
+.switch {
   position: absolute;
   display: block;
   font-size: 40px;
@@ -65,6 +96,29 @@ body {
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+  &-Active {
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.maracas-isShaked {
+  animation: move-y 0.3s ease-in-out;
+}
+
+@keyframes move-y {
+  0% {
+    margin-top: 0;
+  }
+  25% {
+    margin-top: 100px;
+  }
+  75% {
+    margin-top: -100px;
+  }
+  100% {
+    margin-top: 0;
+  }
 }
 </style>
 
@@ -82,6 +136,11 @@ export default {
         let flg = true
         let count = 0
         let target = document.getElementById('target')
+        // 縦幅をスクロールできない高さに変更する
+        let vh = window.innerHeight
+        document.getElementById('maracasContainer').style.height = vh + 'px'
+        document.getElementById('maracas-backGround').style.height = vh + 'px'
+        document.getElementById('maracas-shutoutWall').style.height = vh + 'px'
         // キャッシュのリロード判断
         let cookies = document.cookie
         let cookiesArray = cookies.split(';')
@@ -138,23 +197,35 @@ export default {
           false
         )
 
+        // マラカスが揺れるアニメーション
+        let maracasShake = function () {
+          target.innerHTML = ''
+          document.getElementById('switch').classList.add('maracas-isShaked')
+          setTimeout(() => {
+            document.getElementById('switch').classList.remove('maracas-isShaked')
+          }, 300)
+        }
+
         const maracasEvents = () => {
-          button.innerHTML = 'Shake!'
+          button.innerHTML = '<img class="maracas-img" src="maracas/maracas.svg">'
+          button.classList.add('switch-Active')
+          target.innerHTML = 'Shake!'
           sound1.load()
           sound2.load()
           sound3.load()
           // 許可を得られた場合、devicemotionをイベントリスナーに追加
           window.addEventListener('devicemotion', (e) => {
             // devicemotionのイベント処理
-            target.innerHTML = Math.floor(e.acceleration.x * 10) / 10
+            // target.innerHTML = Math.floor(e.acceleration.x * 10) / 10
             if (e.acceleration.x < -5 || e.acceleration.x > 5) {
               console.log('fire')
               if (flg == true) {
                 flg = false
                 sArray[str].currentTime = 0
                 sArray[str].play()
-                count += 1
-                x.innerHTML = count
+                maracasShake()
+                // count += 1
+                // x.innerHTML = count
                 console.log(flg)
                 setTimeout(()=>{
                   str = Math.floor(Math.random() * 3)
