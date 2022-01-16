@@ -47,7 +47,9 @@ body {
 
 .rBtn {
   height: calc(100vh / 3);
+  border: 2px solid black;
   border-radius: 0;
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
 }
 
 .hidden {
@@ -55,23 +57,23 @@ body {
 }
 
 .f1 {
-  font-size: 20px;
+  font-size: 36px;
 }
 
 .f2 {
-  font-size: 19px;
+  font-size: 34px;
 }
 
 .f3 {
-  font-size: 18px;
+  font-size: 32px;
 }
 
 .f4 {
-  font-size: 17px;
+  font-size: 30px;
 }
 
 .f5 {
-  font-size: 16px;
+  font-size: 28px;
 }
 
 .push {
@@ -162,6 +164,12 @@ export default {
           snd8.currentTime = 0
           snd8.play()
           colorChanger('btn8')
+          console.log('pushed')
+        })
+        document.getElementById('btn9').addEventListener('click', () => {
+          // snd9.currentTime = 0
+          // snd9.play()
+          colorChanger('btn9')
           console.log('pushed')
         })
         let fontRhythm = function () {
