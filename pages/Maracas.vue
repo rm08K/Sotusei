@@ -23,6 +23,7 @@ body {
 }
 
 #target {
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
   text-align: center;
   position: fixed;
   width: 100vw;
@@ -86,6 +87,7 @@ body {
   position: absolute;
   display: block;
   font-size: 40px;
+  font-family: "Arial Black", Arial, Helvetica, sans-serif;
   background-color: #ccc;
   width: 200px;
   height: 200px;
@@ -99,6 +101,8 @@ body {
   &-Active {
     background-color: transparent;
     border: none;
+    width: 300px;
+    height: 300px;
   }
 }
 
