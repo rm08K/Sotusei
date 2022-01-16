@@ -177,9 +177,7 @@ body {
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: purple;
     z-index: -1;
-    display: hidden;
     background: linear-gradient(224deg, #000000, #000000, #3aff00);
     background-size: 600% 600%;
     -webkit-animation: MusicLaderBGAnime 16s ease infinite;
