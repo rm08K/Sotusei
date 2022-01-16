@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+  <div class="musicLadar-backGround"></div>
   <div class="toggleButton">
     <input class="toggleButton-radio" type="radio" name="b1" id="b1" ref="b1" checked>
     <label class="toggleButton-label" for="b1"></label>
@@ -10,12 +11,19 @@
     <input class="toggleButton-radio" type="radio" name="b1" id="b4" ref="b4">
     <label class="toggleButton-label" for="b4"></label>
   </div>
+  <div class="musicLadar-butttonname">
+    <p class="musicLadar-butttonname_title">sine</p>
+    <p class="musicLadar-butttonname_title">square</p>
+    <p class="musicLadar-butttonname_title">sawtooth</p>
+    <p class="musicLadar-butttonname_title">triangle</p>
+  </div>
   <div class="touchPannel" id="touchPannel" ref="touchPannel" @mousemove="slide">
     <div id="x">{{ x }}</div>,
     <div id="y">{{ y }}</div>
   </div>
-  <div class="sliderPannel">
+  <div class="musicLadar-sliderPannel">
     <input type="range" min="0" max="100" value="25" class="slider" id="slider">
+    <p class="musicLadar-sliderPannel_title">Volume</p>
   </div>
 </div>
 </template>
@@ -121,12 +129,13 @@ export default {
 
 <style lang="scss">
 body {
-  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .container {
-  max-width: 600px;
+  max-width: 608px;
   margin: auto;
+  z-index: 0;
 }
 
 .touchPannel {
@@ -143,28 +152,77 @@ body {
 .toggleButton {
   display: flex;
   justify-content: center;
+  gap: 60px;
+  margin-top: 30px;
   &-radio {
     display: none;
     &:checked + label {
-      background-color: #666;
+      background-color: #888;
     }
   }
   &-label {
     display: block;
     width: 50px;
     height: 50px;
-    background-color: #333;
-    border: 4px solid #222;
+    background-color: #444;
+    border: 4px solid #333;
     border-radius: 50%;
-    margin: 20px 30px;
   }
 }
 
-.sliderPannel {
-  max-width: 600px;
-  margin: auto;
-  padding-top: 10px;
-  text-align: center;
+.musicLadar {
+  &-backGround {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: purple;
+    z-index: -1;
+    display: hidden;
+    background: linear-gradient(224deg, #000000, #000000, #3aff00);
+    background-size: 600% 600%;
+    -webkit-animation: MusicLaderBGAnime 16s ease infinite;
+    -moz-animation: MusicLaderBGAnime 16s ease infinite;
+    animation: MusicLaderBGAnime 16s ease infinite;
+  }
+  &-butttonname {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    &_title {
+      width: 58px;
+      text-align: center;
+      margin-top: 0;
+      font-family: "Arial Black", Arial, Helvetica, sans-serif;
+      color: white;
+      &:nth-child(3){
+        margin-left: -10px;
+        padding-right: 10px;
+      }
+      &:nth-child(4) {
+        margin-left: -5px;
+        padding-right: 5px;
+      }
+    }
+  }
+  &-sliderPannel {
+    max-width: 608px;
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+    &_title {
+      @extend .musicLadar-butttonname_title;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@keyframes MusicLaderBGAnime {
+    0%{background-position:90% 0%}
+    50%{background-position:11% 100%}
+    100%{background-position:90% 0%}
 }
 
 .slider {
