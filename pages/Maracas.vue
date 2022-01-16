@@ -173,6 +173,7 @@ export default {
                     let cArray = c.split('=')
                     if (cArray[0] == 'flg2') {
                       console.log('ready')
+                      target.innerHTML = 'Shake!'
                     } else {
                       document.cookie = 'flg2=1;max-age=5'
                       location.reload()
@@ -188,6 +189,7 @@ export default {
           } else {
             // 上記以外のブラウザ
             maracasEvents()
+            target.innerHTML = 'Shake!'
           }
         }
 
@@ -211,7 +213,6 @@ export default {
         const maracasEvents = () => {
           button.innerHTML = '<img class="maracas-img" src="maracas/maracas.svg">'
           button.classList.add('switch-Active')
-          target.innerHTML = 'Shake!'
           sound1.load()
           sound2.load()
           sound3.load()
