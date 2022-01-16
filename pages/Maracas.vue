@@ -77,23 +77,20 @@ export default {
     maracas() {
       if (process.client) {
         console.log('version1.0')
-        // リロード
-        let cookies = document.cookie
-        let cookiesArray = cookies.split(';')
-        for (var c of cookiesArray) {
-          let cArray = c.split('=')
-          if (cArray[0] == 'flg2') {
-            console.log('ready')
-          } else {
-            document.cookie = 'flg2=1;max-age=5'
-            location.reload()
-          }
-        }
         let x = document.getElementById('x')
         let button = document.getElementById('switch')
         let flg = true
         let count = 0
         let target = document.getElementById('target')
+        // キャッシュのリロード判断
+        let cookies = document.cookie
+        let cookiesArray = cookies.split(';')
+        for (var c of cookiesArray) {
+          let cArray = c.split('=')
+          if (cArray[0] == 'flg2') {
+            target.innerHTML = 'もう一度タップ！'
+          }
+        }
         const sound1 = new Audio('maracas/maracas_01.wav')
         const sound2 = new Audio('maracas/maracas_02.wav')
         const sound3 = new Audio('maracas/maracas_03.wav')
@@ -110,6 +107,16 @@ export default {
             DeviceMotionEvent.requestPermission()
               .then((permissionState) => {
                 if (permissionState === 'granted') {
+                  // リロード
+                  for (var c of cookiesArray) {
+                    let cArray = c.split('=')
+                    if (cArray[0] == 'flg2') {
+                      console.log('ready')
+                    } else {
+                      document.cookie = 'flg2=1;max-age=5'
+                      location.reload()
+                    }
+                  }
                   maracasEvents()
                 } else {
                   // 許可を得られなかった場合の処理
