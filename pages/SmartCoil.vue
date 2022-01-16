@@ -1,7 +1,8 @@
 <template>
   <div id="smartcoilContainer" class="smartcoilContainer">
-    <button id="smartCoil-button">Tap!</button>
-    <div class="sliderPannel">
+    <div id="smartCoil-backGround" class="smartCoil-backGround"></div>
+    <button id="smartCoil-button" class="">Tap!</button>
+    <div class="sliderPannel hidden">
       <input
         type="range"
         min="0"
@@ -11,7 +12,7 @@
         id="slider"
       />
     </div>
-    <div id="smartCoil-target">バグって鳴らない時は更新してください</div>
+    <div id="smartCoil-target"><!-- バグって鳴らない時は更新してください --></div>
     <div class="smartCoil-coordinate">
       <div id="smartCoil-x"></div>
     </div>
@@ -31,9 +32,18 @@ body {
   width: 100%;
   height: 100vh;
   position: relative;
-  background-color: rgb(209, 240, 252);
+  // background-color: rgb(209, 240, 252);
 }
 #smartCoil {
+  &-target {
+    font-family: "Arial Black", Arial, Helvetica, sans-serif;
+    text-align: center;
+    position: fixed;
+    width: 100vw;
+    top: 150px;
+    font-size: 20px;
+    font-weight: bold;
+  }
   &-button {
     position: absolute;
     display: block;
@@ -69,8 +79,36 @@ body {
     background-color: #fff;
     padding: 20px;
   }
+  &-backGround {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(224deg, #FFF100, #FFF100, #000000, #FFF100, #FFF100);
+    background-size: 800% 800%;
+    animation: SmartCoilAnimetion 20s ease infinite;
+  }
 }
 
+@keyframes SmartCoilAnimetion {
+    0%{background-position:94% 0%}
+    50%{background-position:7% 100%}
+    100%{background-position:94% 0%}
+}
+
+.smartCoil {
+  &-Active {
+    background-color: transparent !important;
+    border: none !important;
+    font-size: 60px !important;
+    // width: 300px;
+    // height: 300px;
+  }
+}
+
+// スマホ専用
 @media screen and (min-width: 600px) {
   #smartCoil-shutoutWall {
     display: block;
@@ -179,6 +217,9 @@ input[type='range'] {
     background: $mainColor;
   }
 }
+.hidden {
+  display: none;
+}
 </style>
 
 <script>
@@ -225,7 +266,7 @@ export default {
                     let cArray = c.split('=')
                     if (cArray[0] == 'flg') {
                       console.log('ready')
-                      button.innerHTML = '♪'
+                      button.innerHTML = '🔊'
                     } else {
                       document.cookie = 'flg=1;max-age=5'
                       location.reload()
@@ -240,17 +281,24 @@ export default {
               .catch(console.error) // https通信でない場合などで許可を取得できなかった場合
           } else {
             // 上記以外のブラウザ
+            button.innerHTML = '🔊'
             smartCoilEvents()
           }
         }
 
         // ページを出る時の処理
-        history.replaceState(null, document.getElementsByTagName('title')[0].innerHTML, null);
-        window.addEventListener('popstate', function(e) {
+        history.replaceState(
+          null,
+          document.getElementsByTagName('title')[0].innerHTML,
+          null
+        )
+        window.addEventListener('popstate', function (e) {
           oscillator.stop()
         })
 
         const smartCoilEvents = () => {
+          target.innerHTML = ''
+          button.classList.add('smartCoil-Active')
           let audioCtx = new AudioContext()
           let oscillator = audioCtx.createOscillator()
           let gain = audioCtx.createGain()
@@ -269,13 +317,14 @@ export default {
           }
           window.addEventListener('deviceorientation', (e) => {
             // deviceorientationのイベント処理
-            x.innerHTML = parseInt(e.beta)
+            // x.innerHTML = parseInt(e.beta)
             if (e.beta <= -90) {
               oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5 + 896
             } else {
               oscillator.frequency.value = (parseInt(e.beta) + 261) * 2.5
             }
-            gain.gain.value = document.getElementById('slider').value / 100
+            button.style.marginTop = `${-1.2 * parseInt(e.beta)}px`
+            // gain.gain.value = document.getElementById('slider').value / 100
           })
         }
 
