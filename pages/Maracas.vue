@@ -71,8 +71,6 @@ body {
     z-index: -1;
     background: linear-gradient(180deg, #fffb3c, #33ff43);
     background-size: 400% 400%;
-    -webkit-animation: MaracasBGAnime 19s ease infinite;
-    -moz-animation: MaracasBGAnime 19s ease infinite;
     animation: MaracasBGAnime 19s ease infinite;
   }
 }
