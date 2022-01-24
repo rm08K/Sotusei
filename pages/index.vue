@@ -7,7 +7,7 @@
       <div class="topCategory-flexBox pc">
         <nuxt-link class="topLink" to="/MusicLadar"><MusicLaderLogo /></nuxt-link>
         <div class="topCategory-flexBox_contents">
-          <h3><nuxt-link to="/MusicLadar">MusicLader</nuxt-link></h3>
+          <h3><nuxt-link to="/MusicLadar">MusicRader</nuxt-link></h3>
           <p class="topCategory-flexBox_context">音を探す地図</p>
           <p class="topCategory-flexBox_context">マウスでぐりぐりできるオシレーターです。音楽を奏でよう。</p>
         </div>
