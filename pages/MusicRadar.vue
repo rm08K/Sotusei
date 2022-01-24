@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-  <div class="musicLadar-backGround"></div>
+  <div class="musicRadar-backGround"></div>
   <div class="toggleButton">
     <input class="toggleButton-radio" type="radio" name="b1" id="b1" ref="b1" checked>
     <label class="toggleButton-label" for="b1"></label>
@@ -11,19 +11,19 @@
     <input class="toggleButton-radio" type="radio" name="b1" id="b4" ref="b4">
     <label class="toggleButton-label" for="b4"></label>
   </div>
-  <div class="musicLadar-butttonname">
-    <p class="musicLadar-butttonname_title">sine</p>
-    <p class="musicLadar-butttonname_title">square</p>
-    <p class="musicLadar-butttonname_title">sawtooth</p>
-    <p class="musicLadar-butttonname_title">triangle</p>
+  <div class="musicRadar-butttonname">
+    <p class="musicRadar-butttonname_title">sine</p>
+    <p class="musicRadar-butttonname_title">square</p>
+    <p class="musicRadar-butttonname_title">sawtooth</p>
+    <p class="musicRadar-butttonname_title">triangle</p>
   </div>
   <div class="touchPannel" id="touchPannel" ref="touchPannel" @mousemove="slide">
     <div id="x">{{ x }}</div>,
     <div id="y">{{ y }}</div>
   </div>
-  <div class="musicLadar-sliderPannel">
+  <div class="musicRadar-sliderPannel">
     <input type="range" min="0" max="100" value="25" class="slider" id="slider">
-    <p class="musicLadar-sliderPannel_title">Volume</p>
+    <p class="musicRadar-sliderPannel_title">Volume</p>
   </div>
 </div>
 </template>
@@ -39,19 +39,19 @@ export default {
   head() {
     return {
       script: [
-        // { src: 'musicladar.js' }
+        // { src: 'musicRadar.js' }
       ],
     }
   },
   mounted() {
-    this.musicLadar()
+    this.musicRadar()
   },
   methods: {
     slide(e) {
       this.x = e.offsetX
       this.y = e.offsetY
     },
-    musicLadar() {
+    musicRadar() {
       if (process.client) {
         var audioCtx
         var oscillator
@@ -170,7 +170,7 @@ body {
   }
 }
 
-.musicLadar {
+.musicRadar {
   &-backGround {
     position: absolute;
     width: 100vw;
@@ -210,7 +210,7 @@ body {
     padding-top: 10px;
     text-align: center;
     &_title {
-      @extend .musicLadar-butttonname_title;
+      @extend .musicRadar-butttonname_title;
       width: 100%;
       text-align: center;
     }
