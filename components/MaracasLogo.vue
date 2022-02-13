@@ -5,47 +5,6 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 285.94 193.84"
   >
-    <defs>
-      <style>
-        .maracaslogo-1 {
-          fill: #51b1e5;
-          opacity: 0.6;
-        }
-        .maracaslogo-2 {
-          fill: #cae9f6;
-          opacity: 0.7;
-        }
-        .maracaslogo-3,
-        .maracaslogo-4 {
-          fill: none;
-          stroke: #141c3f;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-        }
-        .maracaslogo-3 {
-          stroke-width: 2px;
-        }
-        .maracaslogo-4 {
-          stroke-width: 4px;
-        }
-        .maracaslogo-5 {
-          font-size: 47.04px;
-          fill: #da2c16;
-          font-family: VDL-KyoSensya-Regular-83pv-RKSJ-H, VDL-KyoSensya;
-          letter-spacing: -0.03em;
-        }
-        .maracaslogo-6 {
-          fill: #12335f;
-          letter-spacing: -0.03em;
-        }
-        .maracaslogo-7 {
-          fill: #fff;
-        }
-        .maracaslogo-8 {
-          fill: #040000;
-        }
-      </style>
-    </defs>
     <circle class="maracaslogo-1" cx="98.33" cy="37.11" r="25.27" />
     <circle class="maracaslogo-1" cx="28.73" cy="59.18" r="25.27" />
     <path
@@ -692,6 +651,46 @@
 svg {
   width: 300px;
 }
+
+.maracaslogo-1 {
+  fill: #51b1e5;
+  opacity: 0.6;
+}
+.maracaslogo-2 {
+  fill: #cae9f6;
+  opacity: 0.7;
+}
+.maracaslogo-3,
+.maracaslogo-4 {
+  fill: none;
+  stroke: #141c3f;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.maracaslogo-3 {
+  stroke-width: 2px;
+}
+.maracaslogo-4 {
+  stroke-width: 4px;
+}
+.maracaslogo-5 {
+  font-size: 47.04px;
+  fill: #da2c16;
+  font-family: VDL-KyoSensya-Regular-83pv-RKSJ-H, VDL-KyoSensya;
+  letter-spacing: -0.03em;
+}
+.maracaslogo-6 {
+  // fill: #12335f;
+  fill: #79a4b5;
+  letter-spacing: -0.03em;
+}
+.maracaslogo-7 {
+  fill: #fff;
+}
+.maracaslogo-8 {
+  fill: #040000;
+}
+
 @media screen and (max-width: 600px) {
   svg {
     width: 90vw;

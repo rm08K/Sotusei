@@ -5,31 +5,6 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 273.42 166.06"
   >
-    <defs>
-      <style>
-        .musicradar-1 {
-          fill: #3d498a;
-        }
-        .musicradar-2 {
-          fill: #6e81bf;
-        }
-        .musicradar-3 {
-          fill: #4557a5;
-        }
-        .musicradar-4 {
-          fill: #464646;
-        }
-        .musicradar-5 {
-          fill: #fff;
-        }
-        .musicradar-6 {
-          fill: #eaedda;
-        }
-        .musicradar-7 {
-          fill: #12335f;
-        }
-      </style>
-    </defs>
     <path
       id="Shadow"
       class="musicradar-1"
@@ -115,5 +90,27 @@
 <style lang="scss" scoped>
 svg {
   width: 300px;
+}
+.musicradar-1 {
+  fill: #3d498a;
+}
+.musicradar-2 {
+  fill: #6e81bf;
+}
+.musicradar-3 {
+  fill: #4557a5;
+}
+.musicradar-4 {
+  fill: #464646;
+}
+.musicradar-5 {
+  fill: #fff;
+}
+.musicradar-6 {
+  fill: #eaedda;
+}
+.musicradar-7 {
+  // fill: #12335f;
+  fill: #79a4b5;
 }
 </style>

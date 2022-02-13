@@ -6,30 +6,6 @@
     viewBox="0 0 273.06 173.6"
   >
     <defs>
-      <style>
-        .rhythmlogo-1 {
-          fill: #4557a5;
-        }
-        .rhythmlogo-2 {
-          fill: #cae9f6;
-        }
-        .rhythmlogo-3,
-        .rhythmlogo-4 {
-          fill: none;
-          stroke: #141c3f;
-          stroke-linecap: round;
-          stroke-linejoin: round;
-        }
-        .rhythmlogo-3 {
-          stroke-width: 4px;
-        }
-        .rhythmlogo-4 {
-          stroke-width: 2px;
-        }
-        .rhythmlogo-5 {
-          fill: #12335f;
-        }
-      </style>
     </defs>
     <path
       class="rhythmlogo-1"
@@ -41,10 +17,34 @@
       d="M266.32,87.78v17.85a56.51,56.51,0,0,1-56.51,56.5Z"
       transform="translate(-5.67 -22.91)"
     />
-    <line class="rhythmlogo-3" x1="138.72" y1="139.22" x2="269.57" y2="139.22" />
-    <line class="rhythmlogo-3" x1="147.64" y1="125.84" x2="166.97" y2="125.84" />
-    <line class="rhythmlogo-3" x1="241.32" y1="125.84" x2="260.65" y2="125.84" />
-    <rect class="rhythmlogo-3" x="138.72" y="44.06" width="130.85" height="20.82" />
+    <line
+      class="rhythmlogo-3"
+      x1="138.72"
+      y1="139.22"
+      x2="269.57"
+      y2="139.22"
+    />
+    <line
+      class="rhythmlogo-3"
+      x1="147.64"
+      y1="125.84"
+      x2="166.97"
+      y2="125.84"
+    />
+    <line
+      class="rhythmlogo-3"
+      x1="241.32"
+      y1="125.84"
+      x2="260.65"
+      y2="125.84"
+    />
+    <rect
+      class="rhythmlogo-3"
+      x="138.72"
+      y="44.06"
+      width="130.85"
+      height="20.82"
+    />
     <line class="rhythmlogo-4" x1="138.72" y1="54.47" x2="269.57" y2="54.47" />
     <path
       class="rhythmlogo-3"
@@ -102,5 +102,28 @@
 <style lang="scss" scoped>
 svg {
   width: 300px;
+}
+.rhythmlogo-1 {
+  fill: #4557a5;
+}
+.rhythmlogo-2 {
+  fill: #cae9f6;
+}
+.rhythmlogo-3,
+.rhythmlogo-4 {
+  fill: none;
+  stroke: #141c3f;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.rhythmlogo-3 {
+  stroke-width: 4px;
+}
+.rhythmlogo-4 {
+  stroke-width: 2px;
+}
+.rhythmlogo-5 {
+  // fill: #12335f;
+  fill: #79a4b5;
 }
 </style>
