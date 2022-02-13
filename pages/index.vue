@@ -64,13 +64,21 @@
 
 body {
   margin: 0;
-  background-color: rgb(209, 240, 252);
+  background-color: #000;
+  background-image: url(/Sotusei/bgimg.webp);
+  background-attachment:fixed;
+  background-size:cover;
+  background-position:center;
 }
 a {
   display: block;
+  color: white;
   &:visited {
-    color: rgb(63, 63, 63);
+    color: rgb(172, 172, 172);
   }
+}
+h3 {
+  color: white;
 }
 svg {
   animation: 1.5s appear;
@@ -84,6 +92,7 @@ svg {
 .topCategory {
   &-h2 {
     text-align: center;
+    color: white;
   }
   &-flexBox {
     margin-bottom: 80px;
@@ -96,6 +105,7 @@ svg {
     }
     &_context {
       margin: 5px 0;
+      color: white;
     }
   }
 }
@@ -104,6 +114,7 @@ svg {
 }
 .topText {
   text-align: center;
+  color: white;
 }
 .topLink {
   transition: all .5s;

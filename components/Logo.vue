@@ -6,8 +6,9 @@
           fill: #79a4b5;
         }
         .logo-2 {
-          fill: #1c1c1c;
+          fill: #fff;
         }
+          <!-- fill: #1c1c1c; -->
       </style>
     </defs>
     <g id="_" data-name="♪">
