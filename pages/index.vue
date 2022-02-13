@@ -65,7 +65,7 @@
 body {
   margin: 0;
   background-color: #000;
-  background-image: url(/Sotusei/bgimg.webp);
+  background-image: url(https://rm08k.github.io/Sotusei/Sotusei/bgimg.webp);
   background-attachment:fixed;
   background-size:cover;
   background-position:center;
