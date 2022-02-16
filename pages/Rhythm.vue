@@ -101,15 +101,16 @@ export default {
       if (process.client) {
         console.log('ver1.0')
         let flg = false
-        const snd1 = new Audio('rhythm/GlassScrape3.wav')
-        const snd2 = new Audio('rhythm/MetalPipe3.wav')
-        const snd3 = new Audio('rhythm/MouthClickReverb1.wav')
-        const snd4 = new Audio('rhythm/WoodenPlankSnap1.wav')
-        const snd5 = new Audio('rhythm/魔王魂  ドラム2-タム2.mp3')
-        const snd6 = new Audio('rhythm/魔王魂  ピアノ1-Fコード.mp3')
-        const snd7 = new Audio('rhythm/魔王魂  ベース02.mp3')
-        const snd8 = new Audio('rhythm/魔王魂  ベース05.mp3')
-        let bgm1 = new Audio('rhythm/erec drum.m4a')
+        const snd1 = new Audio('rhythm/rh01.mp3')
+        const snd2 = new Audio('rhythm/rh02.mp3')
+        const snd3 = new Audio('rhythm/rh03.mp3')
+        const snd4 = new Audio('rhythm/rh04.mp3')
+        const snd5 = new Audio('rhythm/rh05.mp3')
+        const snd6 = new Audio('rhythm/rh06.mp3')
+        const snd7 = new Audio('rhythm/rh07.mp3')
+        const snd8 = new Audio('rhythm/rh08.mp3')
+        const snd9 = new Audio('rhythm/rh09.mp3')
+        let bgm1 = new Audio('rhythm/base_rhythm.m4a')
         let elements = document.getElementsByClassName('rBtn')
         document.getElementById('startBtn').addEventListener('click', () => {
           bgm1.currentTime = 0
@@ -167,8 +168,8 @@ export default {
           console.log('pushed')
         })
         document.getElementById('btn9').addEventListener('click', () => {
-          // snd9.currentTime = 0
-          // snd9.play()
+          snd9.currentTime = 0
+          snd9.play()
           colorChanger('btn9')
           console.log('pushed')
         })
